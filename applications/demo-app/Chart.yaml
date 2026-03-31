@@ -1,0 +1,6 @@
+apiVersion: v2
+name: demo-app
+description: Demo application used to test Argo CD and Kargo promotion logic
+type: application
+version: 0.1.0
+appVersion: "latest"
