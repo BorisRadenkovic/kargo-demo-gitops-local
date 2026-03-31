@@ -1,0 +1,19 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Stage
+metadata:
+  name: pro
+  namespace: kargo-demo
+spec:
+  requestedFreight:
+    - origin:
+        kind: Warehouse
+        name: demo-app
+      sources:
+        stages:
+          - itg
+  promotionTemplate:
+    spec:
+      steps:
+        - task:
+            name: demo-app-promo
+          as: promo

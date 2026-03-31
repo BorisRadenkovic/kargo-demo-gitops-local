@@ -1,0 +1,44 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: PromotionTask
+metadata:
+  name: demo-app-promo
+  namespace: kargo-demo
+spec:
+  vars:
+    - name: gitopsRepo
+      value: https://github.com/<tvoj-user>/kargo-demo-gitops.git
+    - name: imageRepo
+      value: ghcr.io/<tvoj-user>/kargo-demo-python-app
+  steps:
+    - uses: git-clone
+      config:
+        repoURL: ${{ vars.gitopsRepo }}
+        checkout:
+          - branch: main
+            path: ./src
+
+    - uses: yaml-update
+      as: update-values
+      config:
+        path: ./src/applications/demo-app/values-${{ ctx.stage }}.yaml
+        updates:
+          - key: image.tag
+            value: ${{ imageFrom(vars.imageRepo).Tag }}
+
+    - uses: git-commit
+      as: commit
+      config:
+        path: ./src
+        message: ${{ task.outputs.update-values.commitMessage }}
+
+    - uses: git-push
+      config:
+        path: ./src
+
+    - uses: argocd-update
+      config:
+        apps:
+          - name: demo-app-${{ ctx.stage }}
+            sources:
+              - repoURL: ${{ vars.gitopsRepo }}
+                desiredRevision: ${{ task.outputs.commit.commit }}
