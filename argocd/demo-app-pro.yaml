@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-app-pro
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/<tvoj-user>/kargo-demo-gitops.git
+    targetRevision: main
+    path: applications/demo-app
+    helm:
+      releaseName: demo-app-pro
+      valueFiles:
+        - values.yaml
+        - values-pro.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo-pro
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
