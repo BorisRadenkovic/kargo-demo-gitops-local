@@ -1,0 +1,13 @@
+environment:
+  name: "DEV"
+
+image:
+  tag: "main"
+
+ingress:
+  enabled: true
+  className: nginx
+  host: demo-dev.localtest.me
+  path: /
+  pathType: Prefix
+  annotations: {}

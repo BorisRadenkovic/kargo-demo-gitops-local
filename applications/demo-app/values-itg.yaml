@@ -1,0 +1,13 @@
+environment:
+  name: "ITG"
+
+image:
+  tag: ""
+
+ingress:
+  enabled: true
+  className: nginx
+  host: demo-itg.localtest.me
+  path: /
+  pathType: Prefix
+  annotations: {}
