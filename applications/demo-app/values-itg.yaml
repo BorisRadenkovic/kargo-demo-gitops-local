@@ -2,7 +2,7 @@ environment:
   name: "ITG"
 
 image:
-  tag: ""
+  tag: "main"
 
 ingress:
   enabled: true

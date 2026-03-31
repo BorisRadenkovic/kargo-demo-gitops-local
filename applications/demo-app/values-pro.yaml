@@ -2,7 +2,7 @@ environment:
   name: "PRO"
 
 image:
-  tag: ""
+  tag: "main"
 
 ingress:
   enabled: true
