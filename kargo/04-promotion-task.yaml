@@ -6,9 +6,9 @@ metadata:
 spec:
   vars:
     - name: gitopsRepo
-      value: https://github.com/<tvoj-user>/kargo-demo-gitops.git
+      value: https://github.com/borisradenkovic/kargo-demo-gitops.git
     - name: imageRepo
-      value: ghcr.io/<tvoj-user>/kargo-demo-python-app
+      value: ghcr.io/borisradenkovic/kargo-demo-python-app
   steps:
     - uses: git-clone
       config:
