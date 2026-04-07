@@ -18,7 +18,7 @@ spec:
             path: ./src
 
     - uses: yaml-update
-      as: update-values
+      as: update
       config:
         path: ./src/applications/demo-app/values-${{ ctx.stage }}.yaml
         updates:
@@ -29,7 +29,7 @@ spec:
       as: commit
       config:
         path: ./src
-        message: ${{ task.outputs.update-values.commitMessage }}
+        message: Update image tag for ${{ ctx.stage }} to ${{ imageFrom(vars.imageRepo).Tag }}
 
     - uses: git-push
       config:
