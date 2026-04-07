@@ -2,7 +2,7 @@ environment:
   name: "ITG"
 
 image:
-  tag: "main"
+  tag: RC-906-2026.04.07_11.45.00
 
 ingress:
   enabled: true
