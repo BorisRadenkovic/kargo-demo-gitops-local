@@ -6,7 +6,7 @@ metadata:
 spec:
   subscriptions:
     - image:
-        repoURL: ghcr.io/borisradenkovic/kargo-demo-python-app
+        repoURL: ghcr.io/borisradenkovic/kargo-demo-python-app-local
         imageSelectionStrategy: Lexical
         allowTagsRegexes:
           - ^RC-[0-9]+-\d{4}\.\d{2}\.\d{2}_\d{2}\.\d{2}\.\d{2}$

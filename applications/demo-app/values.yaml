@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/borisradenkovic/kargo-demo-python-app
+  repository: ghcr.io/borisradenkovic/kargo-demo-python-app-local
   pullPolicy: IfNotPresent
   tag: "main"
 
