@@ -2,7 +2,7 @@ environment:
   name: "DEV"
 
 image:
-  tag: RC-906-2026.04.07_11.45.00
+  tag: RC-907-2026.04.07_12.27.00
 
 ingress:
   enabled: true
