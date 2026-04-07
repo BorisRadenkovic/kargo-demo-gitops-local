@@ -6,7 +6,7 @@ metadata:
 spec:
   vars:
     - name: gitopsRepo
-      value: https://github.com/borisradenkovic/kargo-demo-gitops.git
+      value: https://github.com/BorisRadenkovic/kargo-demo-gitops.git
     - name: imageRepo
       value: ghcr.io/borisradenkovic/kargo-demo-python-app
   steps:
